@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 #paths from the tutorial
@@ -33,15 +34,22 @@ SECRET_KEY = '*2f+zq=ur743pelkydpom)hj=3@ezxfqktq$lk5p+a#a!y24(2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [".herokuapp.com"]
 
 #Admins
 
 ADMINS = (
-    ("Mirko Ahonen", "ahonemi@arcada.fi")
+    ("Mirko Ahonen", "ahonemi@arcada.fi"),
 )
+
+
+#databases
+
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 # Application definition
 
@@ -74,15 +82,7 @@ ROOT_URLCONF = 'microblog.urls'
 WSGI_APPLICATION = 'microblog.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
