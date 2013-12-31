@@ -1,0 +1,18 @@
+{% extends "_layouts/base.html" %}
+
+{% block page_title %}{{ post.title }} | {% endblock %}
+
+{% block page_content %}
+<h2>{{ post.title }}</h2>
+{{ post.content|linebreaks }}
+<p> {{ post.updated_at }} </p>
+
+
+<ul>
+    {% for post in post_list %}
+    <li>{{ post.title }}</li>
+    {% empty %}
+    <li>Sorry, no posts yet. Check back soon!</li>
+    {% endfor %}
+</ul>
+{% endblock %}
