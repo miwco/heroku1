@@ -108,7 +108,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #omaa settii taas
-STATIC_ROOT = root("..", "static")
+STATICFILES_DIRS = (
+    root("..", "assets"),
+)
+
+MEDIA_ROOT = root("..","..","uploads")
+
+STATIC_ROOT = root("..", "..", "static")
 TEMPLATE_DIRS = (
     root("templates")
 )
